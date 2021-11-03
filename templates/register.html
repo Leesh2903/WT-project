@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Register Page</title>
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+              rel="stylesheet" />
+<style>
+#mainregisterarea {
+        margin: auto;
+        height: 400px;
+        width: 500px;
+}
+
+#mainbreak{
+        height = 300px;
+        width = 100%;
+}
+</style>
+</head>
+<body>
+
+<div id = "mainbreak"</div>
+<div id = "mainregisterarea">
+
+<h2> Welcome </h2>
+
+<form method = "POST">
+	<input class="form-control" placeholder="Username" name="dusername">
+	<br>
+	<input class="form-control" placeholder="Password" name="dpassword", type="Password">
+	<br>
+	<input type="Submit" class="btn btn-dark">
+</form>
+</div>
+
+</body>
+</html>

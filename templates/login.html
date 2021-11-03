@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Login Page</title>
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+              rel="stylesheet" />
+<style>
+#mainloginarea {
+	margin: auto;
+	height: 400px;
+	width: 500px;
+}
+
+#mainbreak{
+	height = 300px;
+	width = 100%;
+}
+</style>
+</head>
+<body> 
+<div id = "mainbreak" </div>
+<div id = "mainloginare"> 
+	<h2 class="display-1">Login System</h2>
+<form method = "POST", "GET">
+	<input type="text" aria-label="First name" class= "form-control" placeholder = "UserName", name="username">
+	<br>
+	<input aria-label="Last name" class="form-control" placeholder = "Password", name="password", type= "Password">
+	<br>
+	<input type="submit" class=" btn btn-dark"></input>
+</form>
+<a href="/register">Register</a>
+
+</body>
+</html
+

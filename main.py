@@ -1,5 +1,44 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request
+import os 
+import sqlite3 
+
+currentlocation = os.path.dirname(os.path.abspath(__file__))
+
 app = Flask(__name__)
+
+@app.route("/")
+def login():
+    return render_template("login.html")
+
+
+@app.route("/", methods=["POST"])
+def checklogin():
+    UN = request.form['username']
+    PW = request.form['password']
+
+    sqlconnection = sqlite3.Connection(currentlocation + "/users.db")
+    cursor = sqlconnection.cursor()
+    query1 = "SELECT username, password FROM users WHERE username ='{un}' AND password = '{pw}'".format(un = UN, pw = PW)
+
+    rows = cursor.execute(query1)
+    rows = rows.fetchall()
+    if len(rows) ==1:
+        return render_template("home.html")
+    else:
+        return redirect("/register")
+
+@app.route("/register", methods=["GET","POST"])
+def register():
+    if request.method == "POST": 
+         dUN = request.form['dusername']
+         dPW = request.form['dpassword']
+         sqlconnection = sqlite3.Connection(currentlocation + "/users.db")
+         cursor = sqlconnection.cursor()
+         query1 = "INSERT INTO users VALUES('{u}','{p}')".format(u=dUN, p=dPW)
+         cursor.execute(query1)
+         sqlconnection.commit()
+         return redirect("/")
+    return render_template("register.html")
 
 @app.route('/home/')
 def home():
