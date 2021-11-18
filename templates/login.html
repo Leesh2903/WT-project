@@ -4,30 +4,54 @@
 <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
               rel="stylesheet" />
 <style>
-#mainloginarea {
-	margin: auto;
-	height: 400px;
-	width: 500px;
-}
-
-#mainbreak{
-	height = 300px;
-	width = 100%;
-}
+body { padding-top: 50px;}
+p { text-align:center;
+    font-size: 25px;}
+footer {
+    text-align: center;
+    background-color: #565264;
+    color: #f9f9f9;
+    position:absolute;
+    bottom:0;
+    width:100%;
+   }
+body { background-color:#DCDCDC;}
 </style>
 </head>
 <body> 
-<div id = "mainbreak" </div>
-<div id = "mainloginare"> 
-	<h2 class="display-1">Login System</h2>
-<form method = "POST", "GET">
-	<input type="text" aria-label="First name" class= "form-control" placeholder = "UserName", name="username">
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+                <div class="navbar-header">
+                        <button type="button" class="navbar-toggle-collapsed"
+                        data-toggle="collapse" data-targer="#navbar#" aria-expanded="false"
+                        aria-controls="navbar">
+                                <span class="sr-only">Toggle Navigatrion</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Horror House</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+				<li class="active"><a href="/register">Register!</a></li>
+                        </ul>
+                </div>
+        </nav>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+        </script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+	<h2 class="display-1">Login Here!</h2>
 	<br>
-	<input aria-label="Last name" class="form-control" placeholder = "Password", name="password", type= "Password">
+<form method = "POST", "GET">
+	<input type="text" aria-label="First name" class= "form-control" placeholder = "Username", name="username", style="width:300px">
+	<br>
+	<input aria-label="Last name" class="form-control" placeholder = "Password", name="password", type= "Password", style="width:300px">
 	<br>
 	<input type="submit" class=" btn btn-dark"></input>
 </form>
-<a href="/register">Register</a>
+<footer>&copy 2021 Lee Shaw</footer>
 
 </body>
 </html
